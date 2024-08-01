@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer money - PocketPanda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            max-width: 1600px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .recipient-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .recipient-group input {
+            width: 640%;
+        }
+        .collection-method {
+            text-align: right;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">POCKETPANDA</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homePage.html"><i class="fas fa-home"></i> Home Page</a></li>
+                <li><a href="createAccount.html"><i class="fas fa-user"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="form-container">
+            <h1>TRANSFER</h1>
+            <form action="collection.html" method="GET" onsubmit="return validateForm()">
+                <input type="number" id="amount" placeholder="Key in the amount to transfer...">
+                <div class="recipient-group">
+                    <div>
+                        <label for="recipient">Recipient:</label>
+                        <input type="text" id="recipient" placeholder="Recipient's name">
+                    </div>
+                    <div class="collection-method">
+                        <label for="collectionMethod">Recipient collection method:</label>
+                        <select id="collectionMethod">
+                            <option value="location">Location</option>
+                            <option value="cellPhone">Cell phone</option>
+                        </select>
+                    </div>
+                </div>
+                <label for="description">Description (if available):</label>
+                <input type="text" id="description" placeholder="Description">
+                <label for="address">Address:</label>
+                <input type="text" id="address" placeholder="Recipient address">
+                <button type="submit">TRANSFER</button>
+                <div class="error-message" id="error-message">Information required!</div>
+            </form>
+        </section>
+    </main>
+    <script>
+        function validateForm() {
+            const amount = document.getElementById('amount').value.trim();
+            const recipient = document.getElementById('recipient').value.trim();
+            const collectionMethod = document.getElementById('collectionMethod').value;
+            const description = document.getElementById('description').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const errorMessage = document.getElementById('error-message');
+
+            if (amount === '' || recipient === '' || address === '') {
+                errorMessage.style.display = 'block';
+                return false;
+            } else {
+                errorMessage.style.display = 'none';
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

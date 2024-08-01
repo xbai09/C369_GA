@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Page - PocketPanda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e2e2e2;
+            color: black;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #8a8a8a;
+        }
+
+        .btn:active {
+            background-color: #003f7f;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">POCKETPANDA</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home Page</a></li>
+                <li><a href="createAccount.html"><i class="fas fa-user"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="buttons-container">
+            <img src="images/Screenshot%202024-07-23%20111419.png" alt="Image Description" class="button-image">
+            <div class="form-group">
+                <label for="verification-code">Verification code :</label>
+                <input type="text" id="verification-code" placeholder="Verification code">
+            </div>
+            <div class="form-group">
+                <label for="pin-number">Pin number :</label>
+                <input type="text" id="pin-number" placeholder="Pin number">
+                <br>
+                <button type="button" class="btn confirm" onclick="goBack()">Back</button>
+                <button type="button" class="btn confirm" onclick="confirmTransfer()">Confirm</button>
+                <div class="error-message" id="error-message">Information required!</div>
+            </div>
+        </div>
+    </main>
+    <script>
+        function goBack() {
+            window.location.href = 'homePage.html';
+        }
+
+        function confirmTransfer() {
+            const verificationCode = document.getElementById('verification-code').value.trim();
+            const pinNumber = document.getElementById('pin-number').value.trim();
+            const errorMessage = document.getElementById('error-message');
+
+            if (verificationCode === '' || pinNumber === '') {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                window.location.href = 'transferMoney.html';
+            }
+        }
+    </script>
+</body>
+</html>

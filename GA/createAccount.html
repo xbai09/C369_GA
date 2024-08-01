@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Account - PocketPanda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .error-message {
+            color: red;
+            font-size: 1em;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">POCKETPANDA</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homePage.html"><i class="fas fa-home"></i> Home Page</a></li>
+                <li><a href="createAccount.html"><i class="fas fa-user"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="form-container">
+            <h1>Create new Account</h1>
+            <p>Already have an account? <a href="createAccount.html">Login!</a></p>
+            <form id="signup-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Key in your name">
+                <br>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="hello@gmail.com">
+                <br>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="*****">
+                <br>
+                
+                <label for="date">Date of Birth</label>
+                <input type="date" id="date">
+                <br>
+                <button type="button" onclick="validateForm()">Sign up</button>
+                <div class="error-message" id="error-message">Information required!</div>
+            </form>
+        </section>
+    </main>
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const date = document.getElementById('date').value.trim();
+            const errorMessage = document.getElementById('error-message');
+
+            if (!name || !email || !password || !date) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                window.location.href = 'createAccSuccess.html'; // Redirect to createAccSuccess.html
+            }
+        }
+    </script>
+</body>
+</html>

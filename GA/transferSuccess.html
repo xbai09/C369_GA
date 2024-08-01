@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Success - PocketPanda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #666;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 60px;
+            margin: 350px 0 20px;
+        }
+
+        .code-box {
+            padding: 10px;
+            font-size: 25px;
+            border-radius: 5px;
+            background-color: #d7d7d7;
+            color: black;
+            text-align: center;
+        }
+
+        .back-button {
+        margin-top: 30px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        background-color: #e2e2e2;
+        color: rgb(0, 0, 0);
+        font-size: 1em;
+    }
+
+    .back-button:hover {
+        background-color: #8a8a8a;
+    }
+</style>
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">POCKETPANDA</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homePage.html"><i class="fas fa-home"></i> Home Page</a></li>
+                <li><a href="createAccount.html"><i class="fas fa-user"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>TRANSFER SUCCESSFUL!</h1>
+        <div class="form-group">
+            <label for="unique-code">Recipient’s unique code:</label>
+            <div class="code-box" id="unique-code">Code</div>
+            <button class="back-button" onclick="location.href='homePage.html'">Back to Home Page</button>
+        </div>
+    </div>
+</body>
+</html>

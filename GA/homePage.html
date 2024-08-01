@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - PocketPanda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">POCKETPANDA</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home Page</a></li>
+                <li><a href="createAccount.html"><i class="fas fa-user"></i> Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="language-selection">
+        <label for="language">Choose your language:</label>
+        <select id="language">
+            <option value="english">English</option>
+            <option value="chinese">Chinese</option>
+            <option value="malay">Malay</option>
+        </select>
+    </div>
+    <main>
+        <h1>HOME PAGE</h1>
+        <div class="buttons">
+            <a href="withdraw.html"><button id="withdrawBtn" class="action-btn">Withdraw</button></a>
+            <a href="transfer.html"><button id="transferBtn" class="action-btn">Transfer</button></a>
+        </div>        
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

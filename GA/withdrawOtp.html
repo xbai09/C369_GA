@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Time Password - PocketPanda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .otp-header {
+            font-size: 35px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        .otp-display {
+            font-size: 55px;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+            letter-spacing: 0.1rem;
+        }
+        .timer {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #ff0000;
+        }
+        .otp-input {
+            font-size: 18px;
+            padding: 15px;
+            width: 90%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .enter-button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #cfcece;
+            color: black;
+            cursor: pointer;
+        }
+        .enter-button:hover {
+            background-color: #8a8a8a;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">POCKETPANDA</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homePage.html"><i class="fas fa-home"></i> Home Page</a></li>
+                <li><a href="createAccount.html"><i class="fas fa-user"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="otp-header">One Time Password</div>
+            <div class="otp-display" id="otp">123456</div>
+            <div class="timer" id="timer">30</div>
+            <input type="text" class="otp-input" id="otpInput" maxlength="6" placeholder="Enter OTP">
+            <button class="enter-button" id="enterButton">Enter</button>
+            <div class="message" id="message"></div>
+        </div>
+    </main>
+    <script>
+        function generateOTP() {
+            let otp = '';
+            for (let i = 0; i < 6; i++) {
+                otp += Math.floor(Math.random() * 10);
+            }
+            return otp;
+        }
+
+        let otp = generateOTP();
+        let timer = 30;
+        const otpDisplay = document.getElementById('otp');
+        const timerDisplay = document.getElementById('timer');
+        const messageDisplay = document.getElementById('message');
+        const otpInput = document.getElementById('otpInput');
+        const enterButton = document.getElementById('enterButton');
+
+        otpDisplay.textContent = otp;
+
+        const countdown = setInterval(() => {
+            timer--;
+            timerDisplay.textContent = timer;
+            if (timer === 0) {
+                otp = generateOTP();
+                otpDisplay.textContent = otp;
+                timer = 30;
+            }
+        }, 1000);
+
+        enterButton.addEventListener('click', () => {
+            if (otpInput.value === otp) {
+                clearInterval(countdown);
+                window.location.href = 'withdrawSuccess.html';
+            } else {
+                messageDisplay.textContent = 'Invalid OTP. Please try again.';
+            }
+        });
+
+        otpInput.addEventListener('input', () => {
+            messageDisplay.textContent = '';
+        });
+    </script>
+</body>
+</html>

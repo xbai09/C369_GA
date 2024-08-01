@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal Success - PocketPanda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">POCKETPANDA</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="homePage.html"><i class="fas fa-home"></i> Home Page</a></li>
+                <li><a href="createAccount.html"><i class="fas fa-user"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="withdrawal-section">
+            <h1>WITHDRAWAL SUCCESS</h1>
+            <div class="amount-box">
+                The amount to retrieve will be stated here
+            </div>
+            <form class="withdrawal-form">
+                <label for="sender">Sender:</label>
+                <input type="text" id="sender" name="sender" placeholder="Sender name" readonly>
+                
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" placeholder="Description (if have)" readonly>
+            </form>
+            <button class="back-button" onclick="location.href='homePage.html'">Back to Home Page</button>
+        </div>
+    </main>
+</body>
+</html>
+<style>
+    .amount-box {
+        background-color: #d3d3d3;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+    }
+
+    .withdrawal-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .withdrawal-form label {
+        font-size: 1em;
+        text-align: left;
+    }
+
+    .withdrawal-form input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+        background-color: #f0f0f0;
+        pointer-events: none;
+    }
+
+    .back-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #e2e2e2;
+        color: rgb(0, 0, 0);
+        font-size: 1em;
+    }
+
+    .back-button:hover {
+        background-color: #8a8a8a;
+    }
+</style>
